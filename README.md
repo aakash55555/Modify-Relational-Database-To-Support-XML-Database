@@ -1,12 +1,15 @@
 # Database Management System Implementation 
 
 #Tasks
+
 The following is a list of tasks that you need to perform for the this phase of the project:
+
 • interval data type declaration
 • sort, nestedloop, and sortmerge with interval data types
 • XML data to interval conversion and storage in the DB
 
 Note that getting these working may involve other changes to other modules not described below.
+
 • Set the minibase pagesize to 256 bytes;
 public static final int MINIBASE_PAGESIZE = 256;
 • Define a new data type ”intervaltype” which consists of 2 integers, start and end of the interval.
