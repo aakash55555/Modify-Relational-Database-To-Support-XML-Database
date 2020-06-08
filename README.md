@@ -1,6 +1,6 @@
-# Database Management System Implementation 
+# Database Management System Implementation
 
-#Tasks
+List of Tasks:
 
 The following is a list of tasks that you need to perform for the this phase of the project:
 
@@ -9,12 +9,12 @@ The following is a list of tasks that you need to perform for the this phase of 
 • XML data to interval conversion and storage in the DB
 
 Note that getting these working may involve other changes to other modules not described below.
-
 • Set the minibase pagesize to 256 bytes;
 public static final int MINIBASE_PAGESIZE = 256;
 • Define a new data type ”intervaltype” which consists of 2 integers, start and end of the interval.
 
 filename: intervaltype.java
+
 =========================================================
 
 package global;
