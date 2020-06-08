@@ -1,27 +1,6 @@
 # Database Management System Implementation 
 
-#Phase 1:
-
-Tasks:
-1) Copy the “minjava.tar.gz” file you can find at the Projects folder in the Blackboard site to *your* account in a Unix/Linux based system 
-		-- preferably at general.asu.edu
-2) Uncompress the file
-3) Untar the file using the command
-		tar -xvf minjava.tar
-4) Modify the "Makefile"s to reflect your directory structure
-5) In the "src" directory, build the source by running "make db"
-
-6) Create the deliverable (assuming that you are using a Linux/Unix system):
-6a) In the "src" directory, run the command "script"
-6b) run "make test"
-6c) In one of the tests, you will need to interact with the system.
-6d) When tests are fully completed press "CTRL-D"
-
-7) Submit the resulting "typescript" file and a short report that describes the content 
-of each test at my.asu.edu. **It is important that you describe the tests using your words**
-
-#Phase II :
-
+#Tasks
 The following is a list of tasks that you need to perform for the this phase of the project:
 • interval data type declaration
 • sort, nestedloop, and sortmerge with interval data types
@@ -31,6 +10,7 @@ Note that getting these working may involve other changes to other modules not d
 • Set the minibase pagesize to 256 bytes;
 public static final int MINIBASE_PAGESIZE = 256;
 • Define a new data type ”intervaltype” which consists of 2 integers, start and end of the interval.
+
 filename: intervaltype.java
 =========================================================
 
