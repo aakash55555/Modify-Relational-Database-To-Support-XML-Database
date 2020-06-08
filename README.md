@@ -1,33 +1,43 @@
 # Database Management System Implementation
 
-List of Tasks:
+##Database Used
+* Minibase
 
-The following is a list of tasks that you need to perform for the this phase of the project:
+##Software Used
+* Eclipse Oxygen
 
-• interval data type declaration
-• sort, nestedloop, and sortmerge with interval data types
-• XML data to interval conversion and storage in the DB
+##Prerequisites
+* Project made using Java programming language
+* For faster working require a system with atleast 16GB RAM.
+
+###List of Tasks:
+
+The following is a list of tasks that you need to perform for the project:
+
+* interval data type declaration
+* sort, nestedloop, and sortmerge with interval data types
+* XML data to interval conversion and storage in the DB
 
 Note that getting these working may involve other changes to other modules not described below.
-• Set the minibase pagesize to 256 bytes;
+* Set the minibase pagesize to 256 bytes;
 public static final int MINIBASE_PAGESIZE = 256;
-• Define a new data type ”intervaltype” which consists of 2 integers, start and end of the interval.
+* Define a new data type ”intervaltype” which consists of 2 integers, start and end of the interval.
 
 filename: intervaltype.java
 
 =========================================================
 
-package global;
+	package global;
 
-public class intervaltype {
-int s ;
-int e ;
+	public class intervaltype {
+	int s ;
+	int e ;
 
-public void assign(int a, int b) {
-this.s = a;
-this.e = b;
-}
-}
+	public void assign(int a, int b) {
+	this.s = a;
+	this.e = b;
+	}
+	}
 
 If you need to define a minimum and a maximum value for the intervaltype, you can use
 				{−100000,−100000}
@@ -38,65 +48,66 @@ as the minimum and
 as the maximum.
 
 • Modify attribute type definitions to include a new attribute type called ”attrInterval”, in addition to the
-attribute types already defined in MiniBase.
+  attribute types already defined in MiniBase.
 
-public static final int attrInterval = 5;
+	public static final int attrInterval = 5;
 
-• Modify tuple field get and set methods to include
+* Modify tuple field get and set methods to include
 
-getIntervalFld(int fldNo)
-convert this field into intervaltype
-setIntervalFld(int fldNo, intervaltype val)
-set this field to intervaltype value
+	getIntervalFld(int fldNo)
+	convert this field into intervaltype
+	setIntervalFld(int fldNo, intervaltype val)
+	set this field to intervaltype value
 
-• Modify page get and set methods to include
+* Modify page get and set methods to include
 
-getIntervalValue(int position, byte[] data)
-read from given byte array at the specified position convert
-it to a intervaltype
-setIntervalValue(intervaltype value, int position, byte[] data)
-update a intervaltype in the given byte array at the specified
-position
+	getIntervalValue(int position, byte[] data)
+	
+read from given byte array at the specified position convert it to a intervaltype
 
-• Modify operand definitions to include operands of type intervaltype
+	setIntervalValue(intervaltype value, int position, byte[] data)
+
+update a intervaltype in the given byte array at the specified position
+
+* Modify operand definitions to include operands of type intervaltype
 
 public intervaltype interval;
 
-• Modify tuple comparison methods CompareTupleWithTuple and CompareTupleWithValue, such that they
+* Modify tuple comparison methods CompareTupleWithTuple and CompareTupleWithValue, such that they
 return
 
-– 1 for containment
-– 2 for enclosure
-– 3 for other types of overlap
-– 0 for no-overlap
+1. 1 for containment
+2. 2 for enclosure
+3. 3 for other types of overlap
+4. 0 for no-overlap
 
 if the fields that are compared are of type attrInterval.
 
-• Modify condition expressions, CondExpr, to include an extra field flag to be used in some range based
+* Modify condition expressions, CondExpr, to include an extra field flag to be used in some range based
 conditions
 
-public int flag;
+	public int flag;
 
 If the operands are of type attrInterval, then flag will be set to a non-negative integer.
 
-• Modify Eval to work with attributes of type attrInterval. For example,
-– the operator aopGT should return true, if the first operand contains the second operand.
-– the operator aopLT should return true, if the first operand is contained within the second operand.
-– the operator aopEQ should return true
+* Modify Eval to work with attributes of type attrInterval. For example,
+1.the operator aopGT should return true, if the first operand contains the second operand.
+2. the operator aopLT should return true, if the first operand is contained within the second operand.
+3. the operator aopEQ should return true
 	∗ if flag = 0, if the two operands are equal
 	∗ if flag = 1, if the two operands overlap
-– the operator aopNE should return true
+* the operator aopNE should return true
 	∗ if flag = 0, if the two operands are not equal
 	∗ if flag = 1, if the two operands do not overlap
-• operators aopGE are aopLE are not defined if operands are of type attrInterval.
-• Modify Sort such that if the sort attribute is of type attrInterval, then the sort function sorts all tuples
+* operators aopGE are aopLE are not defined if operands are of type attrInterval.
+* Modify Sort such that if the sort attribute is of type attrInterval, then the sort function sorts all tuples
 according to the start values.
 
 Sort(AttrType[] in, short len_in, short[] str_sizes,
 Iterator am, int sort_fld, TupleOrder sort_order,
 int sort_fld_len, int n_pages)
 
-• Make sure that NestedLoopsJoins and SortMerge iterators, which take CondExpr type input parameters,
+* Make sure that NestedLoopsJoins and SortMerge iterators, which take CondExpr type input parameters,
 work with the new definition of CondExpr.
 
 NestedLoopsJoins(AttrType[] in1, int len_in1, short[] t1_str_sizes,
@@ -114,7 +125,7 @@ boolean in1_sorted, boolean in2_sorted,
 TupleOrder order, CondExpr[] outFilter,
 FldSpec[] proj_list, int n_out_flds)
 
-• Implement a program, which given a tree-structured XML file, stores its elements in the miniBase using
+* Implement a program, which given a tree-structured XML file, stores its elements in the miniBase using
 an interval based representation, with the following schema
 
 nodeT able(nodeIntLabel, nodeT ag)
@@ -166,21 +177,21 @@ k l PC % node k is a parent of node l
 ...
 
 The output of the program are as follows:
-– for each result, the nodeids (and the tags) matching the query nodes
-– the number of pages accessesed to obtain all the results
+	* for each result, the nodeids (and the tags) matching the query nodes
+        * the number of pages accessesed to obtain all the results
 For each query, implement three distinct query plans.
 
-• Modify Minibase’s buffer manager to count the number of pages that are requested from the buffer
+* Modify Minibase’s buffer manager to count the number of pages that are requested from the buffer
 manager. Please see the seperate “pcounter instruction.pdf” file to see one way to achieve this.
 
 
 IMPORTANT: If you need to process large amounts of data (for example to sort a file), do not use the memory.
 Do everything on the disk using the tools and methods provided by minibase.
 
-#Group Members:
-Aakash Rastogi
-Manoj Tiwaskar
-Narsimha Reddy Sarasani
-Sumit Rawat
-Varun Rao Veeramaneni
-Yash Jain
+###**Group Members:**
+*Aakash Rastogi
+*Manoj Tiwaskar
+*Narsimha Reddy Sarasani
+*Sumit Rawat
+*Varun Rao Veeramaneni
+*Yash Jain
