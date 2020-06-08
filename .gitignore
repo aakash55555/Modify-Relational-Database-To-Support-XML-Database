@@ -1,0 +1,7 @@
+Makefile
+*.iml
+*/Makefile
+.idea
+.idea/loaddb.zip
+*.txt
+*.xml
