@@ -191,9 +191,9 @@ IMPORTANT: If you need to process large amounts of data (for example to sort a f
 Do everything on the disk using the tools and methods provided by minibase.
 
 ### **Group Members:**
-*Aakash Rastogi
-*Manoj Tiwaskar
-*Narsimha Reddy Sarasani
-*Sumit Rawat
-*Varun Rao Veeramaneni
-*Yash Jain
+* Aakash Rastogi
+* Manoj Tiwaskar
+* Narsimha Reddy Sarasani
+* Sumit Rawat
+* Varun Rao Veeramaneni
+* Yash Jain
